@@ -1,0 +1,75 @@
+# Catkin workspace and build directories
+catkin_ws/build
+catkin_ws/devel
+
+# Editor backups and temporary files
+*~
+*.swp
+*.bak
+*.tmp
+*.temp
+
+# Compiled and generated files
+*.o
+*.so
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+
+#src/
+CMakeLists.txt
+
+#src/darknet_ros/
+catkin_ws/src/darknet_ros/jenkins-pipeline
+catkin_ws/src/darknet_ros/LICENSE
+catkin_ws/src/darknet_ros/README.md
+catkin_ws/src/darknet_ros/.github/
+
+
+#src/darknet_ros/darknet
+catkin_ws/src/darknet_ros/darknet/
+
+#src/darknet_ros/darknet_ros_msgs
+catkin_ws/src/darknet_ros/darknet_ros_msgs/
+
+
+#src/darknet_ros/darknet_ros
+catkin_ws/src/darknet_ros/darknet_ros/CHANGELOG.rst
+catkin_ws/src/darknet_ros/darknet_ros/CMakeLists.txt
+catkin_ws/src/darknet_ros/darknet_ros/nodelet_plugins.xml
+catkin_ws/src/darknet_ros/darknet_ros/package.xml
+catkin_ws/src/darknet_ros/darknet_ros/test/
+catkin_ws/src/darknet_ros/darknet_ros/doc/
+catkin_ws/src/darknet_ros/darknet_ros/include
+catkin_ws/src/darknet_ros/darknet_ros/src
+
+
+catkin_ws/src/darknet_ros/darknet_ros/launch/*
+catkin_ws/src/darknet_ros/darknet_ros/launch/!darknet_ros.launch
+
+
+catkin_ws/src/darknet_ros/darknet_ros/config/*
+catkin_ws/src/darknet_ros/darknet_ros/config/!ros.yaml
+
+
+# Custom weights (Can be large, better to host separately)
+catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/weights/*
+catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/!weights/yolov3_traffic.weights
+
+# Custom configurations (Optional, include if configurations are sensitive or large)
+catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/cfg/*
+catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/cfg/!yolov3_traffic.cfg
+
+
+#carla-ros-rbidge
+src/ros_bridge/*
+!src/ros-bridge/carla_ros_bridge/launch
+
+
+# Other generated files
+CMakeLists.txt.user
+.vscode/
+.DS_Store
+
