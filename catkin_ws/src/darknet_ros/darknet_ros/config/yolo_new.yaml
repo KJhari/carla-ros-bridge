@@ -1,0 +1,14 @@
+yolo_model:
+
+  config_file:
+    name: yolov3_ts_train.cfg
+  weight_file:
+    name: yolov3_ts_train_5000.weights
+  threshold:
+    value: 0.3
+  detection_classes:
+    names:
+      - prohibitory
+      - danger
+      - mandatory
+      - other
