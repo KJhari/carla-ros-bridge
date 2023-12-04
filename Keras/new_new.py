@@ -14,12 +14,15 @@ import os
 class TrafficSignRecognition:
     def __init__(self):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/darknet_ros/detection_image", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("/carla/ego_vehicle/rgb_front/image", Image, self.image_callback)
         self.bbox_sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, self.bbox_callback)
         self.image_pub = rospy.Publisher("/traffic_sign_recognition/image_with_boxes", Image, queue_size=10)
         self.current_image = None
         self.bounding_boxes = []
         self.mean = None
+
+        # Add an initialization flag
+        self.initialized = False
 
         # Load model
         model_path = '/home/kj/carla-ros-bridge/Keras/input/traffic-signs-classification-with-cnn/model-23x23.h5'
@@ -50,26 +53,41 @@ class TrafficSignRecognition:
         # Load labels
         self.labels = pd.read_csv('/home/kj/carla-ros-bridge/Keras/input/trafficSignsPreprocessed/label_names.csv')
 
+        # After successful initialization
+        self.initialized = True
+
+
     def image_callback(self, data):
-        try:
-            self.current_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
-            self.process_image()  # Call process_image here
-        except Exception as e:
-            rospy.logerr(e)
+        if self.initialized:
+            try:
+                self.current_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
+                self.process_image()  # Call process_image here
+            except Exception as e:
+                rospy.logerr(e)
 
     def bbox_callback(self, data):
-        self.bounding_boxes = data.bounding_boxes
-        if self.current_image is not None:
-            self.process_image()  # Call process_image here if image is already received
+        if self.initialized:
+            self.bounding_boxes = data.bounding_boxes
+            if self.current_image is not None:
+                self.process_image()  # Call process_image here if image is already received
 
     def process_image(self):
-        if self.current_image is not None and self.bounding_boxes and self.mean is not None:
+        if self.current_image is None:
+            print("self.current_image is None")
+
+        if not self.bounding_boxes:
+            print("self.bounding_boxes is empty or None")
+
+        if self.mean is None:
+            print("self.mean is None")
+
+        if self.current_image is not None and self.bounding_boxes and self.mean is not None: 
             for box in self.bounding_boxes:
                 # Extracting the bounding box
                 x_min, y_min = box.xmin, box.ymin
                 box_width, box_height = box.xmax - box.xmin, box.ymax - box.ymin
                 c_ts = self.current_image[y_min:y_min+box_height, x_min:x_min+box_width]
-
+                
                 if c_ts.size == 0:
                     continue
 
@@ -78,6 +96,7 @@ class TrafficSignRecognition:
                 blob_ts[0] = blob_ts[0, :, :, :] - self.mean['mean_image_rgb']
                 blob_ts = blob_ts.transpose(0, 2, 3, 1)
 
+                
                 # Prediction
                 scores = self.model.predict(blob_ts)
                 prediction = np.argmax(scores)
@@ -86,7 +105,7 @@ class TrafficSignRecognition:
                 # Draw bounding box and label on the image
                 cv2.rectangle(self.current_image, (x_min, y_min), (x_min + box_width, y_min + box_height), (0, 255, 0), 2)
                 cv2.putText(self.current_image, predicted_label, (x_min, y_min - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
+               
             # Convert the processed image back to a ROS Image message
             try:
                 ros_msg = self.bridge.cv2_to_imgmsg(self.current_image, "bgr8")
@@ -94,6 +113,8 @@ class TrafficSignRecognition:
                 self.image_pub.publish(ros_msg)
             except Exception as e:
                 rospy.logerr(e)
+        else:
+            print(f'Error: current_image: {self.current_image is not None}, bounding_boxes: {bool(self.bounding_boxes)}, mean: {self.mean is not None}')
 
 if __name__ == '__main__':
     rospy.init_node('traffic_sign_recognition')
