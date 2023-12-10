@@ -20,7 +20,7 @@ Install the Carla simulator and set up the Carla-ROS bridge using the guide prov
 Clone and build the darknet_ros package for ROS integration with YOLO object detection. Refer to the [Darknet ROS GitHub](https://github.com/leggedrobotics/darknet_ros) for detailed instructions.
 
 ### Training
-Refer to the \Darknet_training folder for training guidelines
+Refer to the \Darknet_training folder for training guidelines<br>
 [Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs)
 
 
