@@ -13,7 +13,7 @@ Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http:
 
 ## Carla Simulator and ROS Bridge
 
-Install the Carla simulator and set up the Carla-ROS bridge using the guide provided here: [Carla-ROS Bridge.](https://carla.readthedocs.io/projects/ros-bridge/en/latest/)
+Install the [Carla simulator](https://carla.org/)  and set up the Carla-ROS bridge using the guide provided here: [Carla-ROS Bridge.](https://carla.readthedocs.io/projects/ros-bridge/en/latest/)
 
 ## Darknet ROS
 
