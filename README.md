@@ -49,7 +49,7 @@ source carla-ros-bridge/catkin_ws/devel/setup.bash
 ```
  Launch the bridge to communicate between Carla and ROS
 ```
-roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch<br>
+roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch
 ```
 #### Execute Darknet ROS: 
 Use the launch file to run darknet_ros.<br>
@@ -76,7 +76,7 @@ source carla-ros-bridge/catkin_ws/devel/setup.bash
 ```
 #####  to detect the subclasses using Keras and publish the topic in ROS to view in Rviz
 ```
-python3 detect_subclass
+python3 carla-ros-bridge/Keras/detect_subclass.py
 ```
 
 ### Launch Rviz
