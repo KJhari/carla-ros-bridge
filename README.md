@@ -21,7 +21,7 @@ Clone and build the darknet_ros package for ROS integration with YOLO object det
 
 ### Training
 Refer to the \Darknet_training folder for training guidelines
-Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs)
+[Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs)
 
 
 ## Configuration
