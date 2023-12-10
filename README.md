@@ -9,15 +9,20 @@ This project integrates the Carla simulator, ROS (Robot Operating System), and D
 ## Installation
 ### ROS Installation
 
-Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu.
+Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on [Ubuntu 20.04 Focal](https://releases.ubuntu.com/focal/).
 
 ## Carla Simulator and ROS Bridge
 
-Install the Carla simulator and set up the Carla-ROS bridge using the guide provided here: [Carla-ROS Bridge.](https://carla.readthedocs.io/projects/ros-bridge/en/latest/)
+Install the [Carla simulator](https://carla.org/)  and set up the Carla-ROS bridge using the guide provided here: [Carla-ROS Bridge.](https://carla.readthedocs.io/projects/ros-bridge/en/latest/)
 
 ## Darknet ROS
 
 Clone and build the darknet_ros package for ROS integration with YOLO object detection. Refer to the [Darknet ROS GitHub](https://github.com/leggedrobotics/darknet_ros) for detailed instructions.
+
+### Training
+Refer to the \Darknet_training folder for training guidelines<br>
+[Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs)
+
 
 ## Configuration
 
