@@ -34,6 +34,17 @@ Place your custom YOLO model weights (yolov3_traffic.weights) in the weights/ di
 
 bounding_box_node.py subscribes to image and bounding box topics, overlays the detected bounding boxes on images, and publishes the result. This allows visualization of detections in RViz.
 
+## screenshots and results
+
+
+![rostopic_lsit](https://github.com/KJhari/carla-ros-bridge/assets/44090664/20594837-8d99-42c8-a529-f406425e895f)
+
+![Carla_map04_detected](https://github.com/KJhari/carla-ros-bridge/assets/44090664/f69b9b8c-2b1b-4fe4-a6f3-269a413afa82)
+
+![3](https://github.com/KJhari/carla-ros-bridge/assets/44090664/8aaa3ec7-0406-425e-b214-8ffa8aca1eea)
+
+[Town7+detection+3.webm](https://github.com/KJhari/carla-ros-bridge/assets/44090664/2d445b7a-cce0-4d10-b3e3-2e658a616b53)
+
 ## Troubleshooting
 
 For common issues, refer to each component's respective documentation and troubleshooting guides.
@@ -45,10 +56,3 @@ Acknowledgments
 
 Thanks to the teams behind Carla, ROS, and Darknet for their open-source software, and to [Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs) for the YOLO training on traffic signs.
 
-![rostopic_lsit](https://github.com/KJhari/carla-ros-bridge/assets/44090664/20594837-8d99-42c8-a529-f406425e895f)
-
-![Carla_map04_detected](https://github.com/KJhari/carla-ros-bridge/assets/44090664/f69b9b8c-2b1b-4fe4-a6f3-269a413afa82)
-
-![3](https://github.com/KJhari/carla-ros-bridge/assets/44090664/8aaa3ec7-0406-425e-b214-8ffa8aca1eea)
-
-[Town7+detection+3.webm](https://github.com/KJhari/carla-ros-bridge/assets/44090664/2d445b7a-cce0-4d10-b3e3-2e658a616b53)
