@@ -9,7 +9,7 @@ This project integrates the Carla simulator, ROS (Robot Operating System), and D
 ## Installation
 ### ROS Installation
 
-Follow the instructions at ROS Noetic Installation to install ROS Noetic on Ubuntu.
+Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu.
 
 ## Carla Simulator and ROS Bridge
 
@@ -40,10 +40,10 @@ For common issues, refer to each component's respective documentation and troubl
 
 ## Contributions and License
 
-Contributions are welcome. Please follow the contribution guidelines specified in the repository. The project is released under [specify the license].
+Contributions are welcome. Please follow the contribution guidelines specified in the repository.
 Acknowledgments
 
-Thanks to the teams behind Carla, ROS, and Darknet for their open-source software, and to Rumeysa Keskin for the YOLO training on traffic signs.
+Thanks to the teams behind Carla, ROS, and Darknet for their open-source software, and to [Rumeysa Keskin](https://github.com/Rumeysakeskin/YOLO-Darknet-Video-and-Image-Detection-Traffic-Signs) for the YOLO training on traffic signs.
 
 ![rostopic_lsit](https://github.com/KJhari/carla-ros-bridge/assets/44090664/20594837-8d99-42c8-a529-f406425e895f)
 
