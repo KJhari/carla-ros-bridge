@@ -25,34 +25,63 @@ Place your custom YOLO model weights (yolov3_traffic.weights) in the weights/ di
 
 ## Running the Project
 
-    Launch Carla Simulator: Start the Carla simulator using Utils/Carla_launch.sh , set the path and simulation options based on your needs
-    ``
-    Bash Carla_launch.sh
-    ``
-    change the map if you want by editing Utils/changeMap.py and run using 
-    ``
-    python3 changeMap.py
-    ``
-    Run Carla-ROS Bridge: Launch the bridge to communicate between Carla and ROS.
-    source the files before launch
-    ``
-    source carla-ros-bridge/catkin_ws/devel/setup.bash 
-    ``
-    ``
-    roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch
-    ``
-    Execute Darknet ROS: Use the launch file to run darknet_ros.
-    ``
-    source carla-ros-bridge/catkin_ws/devel/setup.bash 
-    ``
-    ``
-    roslaunch darknet_ros darknet_ros.launch
-    ``
-    
+#### Launch Carla Simulator: 
+Start the Carla simulator using Utils/Carla_launch.sh , set the path and simulation options based on your needs<br>
+```
+Bash Carla_launch.sh
+```
+
+#### Chnage Map
+edit Utils/changeMap.py and run using<br> 
+```
+python3 changeMap.py
+```
+
+#### Run Carla-ROS Bridge:<br>
+ source the files before launch
+```
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+ Launch the bridge to communicate between Carla and ROS
+```
+roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch<br>
+```
+#### Execute Darknet ROS: 
+Use the launch file to run darknet_ros.<br>
+```
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+```
+roslaunch darknet_ros darknet_ros.launch
+```
+#### Note: ***Launch the custom ROS node only once darknet_ros starts publishing the bounding box co-ordinates***, you can doublecheck this by running 
+```
+rostopic echo \darknet_ros\bouding_boxes
+```
+
+#### Launch the custom ROS node
+In another terminal open up the virtual environment for Keras
+```
+source carla-ros-bridge/Keras/keras_env/bin/activate
+```
+##### source in virtual environment also
+```
+source /opt/ros/noetic/setup.bash
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+#####  to detect the subclasses using Keras and publish the topic in ROS to view in Rviz
+```
+python3 detect_subclass
+```
+
+### Launch Rviz
+click `Add` to create a visualization<br>
+choose by topic and select `\traffic_sign_recognition\image_with_boxes`
+
 
 ## Custom Node Explanation
 
-bounding_box_node.py subscribes to image and bounding box topics, overlays the detected bounding boxes on images, and publishes the result. This allows visualization of detections in RViz.
+detect_subclass.py subscribes to image from the ego_vehicle rgb camera sensor and bounding box topics from darknet_ros, overlays the detected bounding boxes on images, extracts the image within the bouding box and feeds it to the Keras Model, the output from the model is then published as a topic to ROS under the name `\traffic_sign_recognition\image_with_boxes`. This allows visualization of detections in RViz.
 
 ## screenshots and results
 
