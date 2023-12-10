@@ -76,7 +76,7 @@ source carla-ros-bridge/catkin_ws/devel/setup.bash
 ```
 #####  to detect the subclasses using Keras and publish the topic in ROS to view in Rviz
 ```
-python3 detect_subclass
+python3 carla-ros-bridge/Keras/detect_subclass.py
 ```
 
 ### Launch Rviz
