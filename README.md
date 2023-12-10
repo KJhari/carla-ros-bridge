@@ -9,7 +9,7 @@ This project integrates the Carla simulator, ROS (Robot Operating System), and D
 ## Installation
 ### ROS Installation
 
-Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu.
+Follow the instructions at ROS Noetic Installation to install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on [Ubuntu 20.04 Focal](https://releases.ubuntu.com/focal/).
 
 ## Carla Simulator and ROS Bridge
 
