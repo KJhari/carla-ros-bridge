@@ -13,11 +13,11 @@ Follow the instructions at ROS Noetic Installation to install ROS Noetic on Ubun
 
 ## Carla Simulator and ROS Bridge
 
-Install the Carla simulator and set up the Carla-ROS bridge using the guide provided here: Carla-ROS Bridge.
+Install the Carla simulator and set up the Carla-ROS bridge using the guide provided here: [Carla-ROS Bridge.](https://carla.readthedocs.io/projects/ros-bridge/en/latest/)
 
 ## Darknet ROS
 
-Clone and build the darknet_ros package for ROS integration with YOLO object detection. Refer to the Darknet ROS GitHub for detailed instructions.
+Clone and build the darknet_ros package for ROS integration with YOLO object detection. Refer to the [Darknet ROS GitHub](https://github.com/leggedrobotics/darknet_ros) for detailed instructions.
 
 ## Configuration
 
