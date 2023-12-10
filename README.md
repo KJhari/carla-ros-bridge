@@ -25,30 +25,44 @@ Place your custom YOLO model weights (yolov3_traffic.weights) in the weights/ di
 
 ## Running the Project
 
-    Launch Carla Simulator: Start the Carla simulator using Utils/Carla_launch.sh , set the path and simulation options based on your needs
-    ``
-    Bash Carla_launch.sh
-    ``
-    change the map if you want by editing Utils/changeMap.py and run using 
-    ``
-    python3 changeMap.py
-    ``
-    Run Carla-ROS Bridge: Launch the bridge to communicate between Carla and ROS.
-    source the files before launch
-    ``
-    source carla-ros-bridge/catkin_ws/devel/setup.bash 
-    ``
-    ``
-    roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch
-    ``
-    Execute Darknet ROS: Use the launch file to run darknet_ros.
-    ``
-    source carla-ros-bridge/catkin_ws/devel/setup.bash 
-    ``
-    ``
-    roslaunch darknet_ros darknet_ros.launch
-    ``
-    
+Launch Carla Simulator: Start the Carla simulator using Utils/Carla_launch.sh , set the path and simulation options based on your needs<br>
+```
+Bash Carla_launch.sh
+```
+
+change the map if you want by editing Utils/changeMap.py and run using<br> 
+```
+python3 changeMap.py
+```
+
+Run Carla-ROS Bridge: Launch the bridge to communicate between Carla and ROS.<br>
+source the files before launch<br>
+```
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+```
+roslaunch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch<br>
+```
+Execute Darknet ROS: Use the launch file to run darknet_ros.<br>
+```
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+```
+roslaunch darknet_ros darknet_ros.launch
+```
+In another terminal open up the virtual environment for Keras
+```
+source carla-ros-bridge/Keras/keras_env/bin/activate
+```
+source in virtual environment also
+```
+source /opt/ros/noetic/setup.bash
+source carla-ros-bridge/catkin_ws/devel/setup.bash 
+```
+Launch the custom ROS node to detect the subclasses using Keras and publish the topic in ROS to view in Rviz
+```
+python3 detect_subclass
+```
 
 ## Custom Node Explanation
 
